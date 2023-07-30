@@ -1,41 +1,33 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class task2 {
     public static void main(String[] args) {
-        Scanner read = new Scanner(System.in);
-        System.out.print("Enter the number of elements in the array: ");
-        int n = read.nextInt();
 
-        int[] nums = new int[n];
-        System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < n; i++) {
-            nums[i] = read.nextInt();
-        }
+        System.out.println("Think of a whole number betwen 1 and 100. I'll guess what it is!");
+        System.out.println("When you're ready, type yes and press enter.");
 
-        System.out.print("Enter the target sum: ");
-        int target = read.nextInt();
+        Scanner scanner = new Scanner(System.in);
 
-        int[] indices = new int[2];
-        boolean found = false;
+        scanner.nextLine();
+        Random random = new Random();
+        int rightn = random.nextInt(100);
 
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] == target) {
-                    indices[0] = i;
-                    indices[1] = j;
-                    found = true;
-                    break;
-                }
+        boolean done = false;
+        while (!done) {
+
+            System.out.println("write your guess number: ");
+            int guess = scanner.nextInt();
+            if (rightn > guess) {
+                System.out.println("Please type greater  ");
+            } else if (rightn < guess) {
+                System.out.println("Please type lower  ");
+            } else if (rightn == guess) {
+                System.out.println("correct answer  ");
+                done = true;
+            } else {
+                scanner.close();
             }
-            if (found) {
-                break;
-            }
-        }
-
-        if (found) {
-            System.out.println("Indices of elements " + nums[indices[0]] + " and " + nums[indices[1]] + ": [" + indices[0] + ", " + indices[1] + "]");
-        } else {
-            System.out.println("No two elements found that add up to the target value.");
         }
     }
 }
