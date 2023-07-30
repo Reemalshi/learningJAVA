@@ -1,34 +1,16 @@
+import java.lang.Math;
 import java.util.Scanner;
 
 public class task1 {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter the number of elements in the array: ");
-            int n = scanner.nextInt();
+    public static void main(String args[]) {
 
-            int[] inputArray = new int[n - 1];
+//    Implement pow(x, n), which calculates x raised to the power n (x^n).
+        Scanner read = new Scanner(System.in);
+        System.out.println("Enter x:");
+        double x = read.nextDouble();
 
-            System.out.println("Enter " + (n - 1) + " elements of the array (numbers from 1 to " + n + "):");
-            for (int i = 0; i < n - 1; i++) {
-                inputArray[i] = scanner.nextInt();
-            }
-
-            int missingNumber = 0;
-            for (int i = 1; i <= n; i++) {
-                boolean found = false;
-                for (int num : inputArray) {
-                    if (num == i) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    missingNumber = i;
-                    break;
-                }
-            }
-
-            System.out.println("The missing number is: " + missingNumber);
-        }
-
+        System.out.println("Enter n:");
+        double n = read.nextDouble();
+        System.out.println("resalt =  "+ Math.pow(x, n));
+    }
 }
